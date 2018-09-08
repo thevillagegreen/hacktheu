@@ -6,7 +6,8 @@
   "browser_action": {
     "default_popup": "popup.html"
   },
-  "permissions": ["storage", "declarativeContent"],
+  "options_page": "options.html",
+  "permissions": ["storage", "declarativeContent", "activeTab"],
   "background": {
     "scripts": ["Background.js"],
     "persistent": false
