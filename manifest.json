@@ -2,5 +2,9 @@
   "name": "HackTheU - Lazy eye",
   "version": "1.0",
   "description": "HackTheU",
-  "manifest_version": 2
+  "manifest_version": 2,  
+  "browser_action": {
+    "default_icon": "camera-icon.png",
+    "default_popup": "popup.html"
+  },
 }
