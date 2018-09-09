@@ -18,8 +18,8 @@
 var colNum = 12;
 
 // colors to display
-color1 = 'red';
-color2 = 'blue';
+color1_ = 'red';
+color2_ = 'blue';
 
 var overlaysDiv = document.getElementById('overlays')
 var p1 = document.getElementById('alternating')
@@ -32,8 +32,8 @@ function overlays() {
   overlaysDiv.style.gridTemplateColumns = `repeat(${colNum}, 1fr)`
   overlaysDiv.style.gridTemplateRows = '1fr';
   overlaysDiv.style.width = '50vw';
-    
-    
+
+
     overlaysDiv.style.height = paragraphHeight + "px";
     // for each colNum, create col
     for (var j = 0; j < colNum; j++) {
@@ -43,10 +43,10 @@ function overlays() {
       // alternate all even columns with color
       if (j % 2 === 0) {
         if (j % 4 === 0) {
-          colDiv.style.backgroundColor = color1;
+          colDiv.style.backgroundColor = color1_;
           colDiv.style.opacity = 0.7;
         } else {
-          colDiv.style.backgroundColor = color2;
+          colDiv.style.backgroundColor = color2_;
           colDiv.style.opacity = 0.7;
         }
       }
@@ -56,7 +56,7 @@ function overlays() {
       // append to display div
       overlaysDiv.appendChild(colDiv);
     }
-  
+
 }
 
 
@@ -72,9 +72,9 @@ function alternating() {
     var color = 'black';
     if(index%2 === 0) {
       if(index%4 === 0) {
-        color = color2
+        color = color2_
       } else {
-        color = color1
+        color = color1_
       }
     }
     pSection = chunk.join(" ") + " ";
@@ -111,19 +111,22 @@ overlays();
 alternating();
 
 
-// listening for events to change preview colors 
+// listening for events to change preview colors
 function processLeftColor(c1) {
   var cv1 = document.getElementById(c1).value;
   var p = document.getElementById("output_left");
-  color1 = cv1;
+  color1_ = cv1;
   p.textContent = cv1;
+  chrome.storage.sync.set({color1: color1_}, function() {
+    console.log("The color is green.");
+  });
   for (var index = 0; index < overlaysDiv.children.length; index++) {
     var color = 'translucent';
     if(index%2 === 0) {
       if(index%4 === 0) {
-        color = color2
+        color = color2_
       } else {
-        color = color1
+        color = color1_
       }
     }
     overlaysDiv.children[index].style.backgroundColor = color
@@ -133,20 +136,21 @@ function processLeftColor(c1) {
 function processRightColor(c1) {
   var cv1 = document.getElementById(c1).value;
   var p = document.getElementById("output_right");
-  color2 = cv1;
+  color2_ = cv1;
   p.textContent = cv1;
+  chrome.storage.sync.set({color2: color2_}, function() {
+    console.log("The color is green.");
+  });
   for (var index = 0; index < overlaysDiv.children.length; index++) {
     var color = 'translucent';
     if(index%2 === 0) {
       if(index%4 === 0) {
-        color = color2
+        color = color2_
       } else {
-        color = color1
+        color = color1_
       }
     }
     overlaysDiv.children[index].style.backgroundColor = color
   }
 
 }
-
-
