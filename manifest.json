@@ -9,7 +9,7 @@
   "options_page": "options.html",
   "permissions": ["storage", "declarativeContent", "activeTab"],
   "background": {
-    "scripts": ["Background.js"],
+    "scripts": ["background.js"],
     "persistent": false
   }
 }

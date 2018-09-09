@@ -1,9 +1,20 @@
 // set number of columns you want to be displayed
 var colNum = 18;
 
+var color1_;
+var color2_ = 'blue';
+
+chrome.storage.sync.get('color1', function(data) {
+  color1_ = data.color1;
+  chrome.storage.sync.get('color2', function(result) {
+      color2_ = result.color2;
+      main();
+    });
+  });
+
+
+
 // colors to display
-color1 = 'red';
-color2 = 'blue';
 
 
 function generateBars(paragraph) {
@@ -24,7 +35,6 @@ function generateBars(paragraph) {
   console.log(paragraph.clientWidth);
   overlaysDiv.style.height = (paragraph.clientHeight + 8) + "px";
 
-
   // for each colNum, create col
   for (var j = 0; j < colNum; j++) {
     // create a column item
@@ -33,10 +43,10 @@ function generateBars(paragraph) {
     // alternate all even columns with color
     if (j % 2 === 0) {
       if (j % 4 === 0) {
-        colDiv.style.backgroundColor = color1;
+        colDiv.style.backgroundColor = color1_;
         colDiv.style.opacity = 0.7;
       } else {
-        colDiv.style.backgroundColor = color2;
+        colDiv.style.backgroundColor = color2_;
         colDiv.style.opacity = 0.7;
       }
     }
@@ -48,17 +58,21 @@ function generateBars(paragraph) {
   }
 }
 
-var cols = [].slice.call(document.getElementsByClassName('column'));
 
-if (cols.length === 0) {
-  var paragraphs = [].slice.call(document.getElementsByTagName('P'));
+function main() {
+  var cols = [].slice.call(document.getElementsByClassName('column'));
 
-  paragraphs.forEach(function(elem) {
-    generateBars(elem);
-  });
-}
-else {
-  cols.forEach(function(col){
-    col.style.opacity = 0.7;
-  });
+  if (cols.length === 0) {
+    var paragraphs = [].slice.call(document.getElementsByTagName('P'));
+
+    paragraphs.forEach(function(elem) {
+      generateBars(elem);
+    });
+  }
+  else {
+    cols.forEach(function(col){
+      col.style.opacity = 0.7;
+    });
+  }
+
 }
