@@ -4,10 +4,10 @@
 color1_ = 'red';
 color2_ = 'blue';
 
-chrome.storage.sync.get('color1', function(data) {
-  color1_ = data.color1;
-  chrome.storage.sync.get('color2', function(result) {
-      color2_ = result.color2;
+chrome.storage.sync.get('over_color1', function(data) {
+  color1_ = data.over_color1;
+  chrome.storage.sync.get('over_color2', function(result) {
+      color2_ = result.over_color2;
       main();
     });
   });

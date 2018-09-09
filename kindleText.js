@@ -3,12 +3,21 @@ var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
 
 var content = innerDoc.getElementById('kindleReader_content')
 
-content_iframeINPUT = innerDoc.getElementById('column_0_frame_1');
 
-color(content_iframeINPUT);
-content_iframeINPUT = innerDoc.getElementById('column_0_frame_0');
-color(content_iframeINPUT);
 
+var color1_;
+var color2_;
+
+chrome.storage.sync.get('alt_color1', function(data) {
+  color1_ = data.alt_color1;
+  chrome.storage.sync.get('alt_color2', function(result) {
+      color2_ = result.alt_color2;
+      content_iframeINPUT = innerDoc.getElementById('column_0_frame_1');
+      color(content_iframeINPUT);
+      content_iframeINPUT = innerDoc.getElementById('column_0_frame_0');
+      color(content_iframeINPUT);
+    });
+  });
 
 function color(content_iframe){
   var contentDoc = content_iframe.contentDocument || content_iframe.contentWindow.document;
@@ -37,9 +46,9 @@ function color(content_iframe){
           var color = 'black';
           if(index%2 === 0) {
             if(index%4 === 0) {
-              color = color2
+              color = color2_
             } else {
-              color = color1
+              color = color1_
             }
           }
           for(var k = 0; k < chunk.length; k++) {
