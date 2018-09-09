@@ -5,7 +5,6 @@ var content = innerDoc.getElementById('kindleReader_content')
 
 var container = content.children.item(0)
 var height = container.clientHeight
-console.log(height)
 var overlaysDiv = innerDoc.createElement('div');
 
 // set number of columns you want to be displayed
