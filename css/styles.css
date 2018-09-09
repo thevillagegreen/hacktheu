@@ -59,7 +59,7 @@ img {
 .logo-icon {
   vertical-align: text-bottom;
   margin-right: 0px;
-  padding-bottom: 3px;
+  margin-bottom: -5px;
 }
 
 .version {
