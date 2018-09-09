@@ -13,3 +13,14 @@ changeColor.onclick = function(element) {
         {file: "changeColor.js"});
   });
 };
+
+let changeTextColor = document.getElementById('colorText');
+
+changeTextColor.onclick = function(element) {
+  chrome.tabs.query({active:true, currentWindow:true}, function(tabs){
+    chrome.tabs.executeScript(
+      tabs[0].id,
+      {file:"changeTextColor.js"}
+    );
+  });
+};
