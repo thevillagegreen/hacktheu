@@ -112,14 +112,14 @@ alternating();
 
 
 // listening for events to change preview colors
-function processLeftColor(c1) {
-  var cv1 = document.getElementById(c1).value;
+document.getElementById('leftBtn').addEventListener('click', function(event) {
+  var cv1 = document.getElementById('color_left').value;
   var p = document.getElementById("output_left");
   color1_ = cv1;
-  p.textContent = cv1;
   chrome.storage.sync.set({color1: color1_}, function() {
-    console.log("The color is green.");
-  });
+          console.log('color is ' + item);
+        });
+  p.textContent = cv1;
   for (var index = 0; index < overlaysDiv.children.length; index++) {
     var color = 'translucent';
     if(index%2 === 0) {
@@ -131,16 +131,16 @@ function processLeftColor(c1) {
     }
     overlaysDiv.children[index].style.backgroundColor = color
   }
-}
+})
 
-function processRightColor(c1) {
-  var cv1 = document.getElementById(c1).value;
+document.getElementById('rightBtn').addEventListener('click', function(event) {
+  var cv1 = document.getElementById('color_right').value;
   var p = document.getElementById("output_right");
   color2_ = cv1;
-  p.textContent = cv1;
   chrome.storage.sync.set({color2: color2_}, function() {
-    console.log("The color is green.");
-  });
+          console.log('color is ' + item);
+        });
+  p.textContent = cv1;onClick="processRightColor('color_right')"
   for (var index = 0; index < overlaysDiv.children.length; index++) {
     var color = 'translucent';
     if(index%2 === 0) {
@@ -153,4 +153,4 @@ function processRightColor(c1) {
     overlaysDiv.children[index].style.backgroundColor = color
   }
 
-}
+})
