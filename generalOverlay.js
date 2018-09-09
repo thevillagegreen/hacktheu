@@ -7,9 +7,9 @@ color2 = 'blue';
 
 
 function generateBars(paragraph) {
- if(paragraph.clientHeight < 40) {
-   return;
- }
+  if (paragraph.clientHeight < 40) {
+    return;
+  }
   parentDiv = paragraph.parentNode.insertBefore(document.createElement("div"), paragraph);
   paragraph.parentNode.removeChild(paragraph);
   parentDiv.appendChild(paragraph);
@@ -21,7 +21,7 @@ function generateBars(paragraph) {
   overlaysDiv.style.gridTemplateColumns = `repeat(${colNum}, 1fr)`
   overlaysDiv.style.gridTemplateRows = '1fr';
   overlaysDiv.style.width = paragraph.clientWidth + "px";
-  console.log(paragraph.clientWidth );
+  console.log(paragraph.clientWidth);
   overlaysDiv.style.height = (paragraph.clientHeight + 8) + "px";
 
 
@@ -48,9 +48,17 @@ function generateBars(paragraph) {
   }
 }
 
+var cols = [].slice.call(document.getElementsByClassName('column'));
 
-var paragraphs = [].slice.call(document.getElementsByTagName('P'));
+if (cols.length === 0) {
+  var paragraphs = [].slice.call(document.getElementsByTagName('P'));
 
-paragraphs.forEach(function(elem) {
-  generateBars(elem);
-});
+  paragraphs.forEach(function(elem) {
+    generateBars(elem);
+  });
+}
+else {
+  cols.forEach(function(col){
+    col.style.opacity = 0.7;
+  });
+}

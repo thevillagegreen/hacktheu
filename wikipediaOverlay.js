@@ -66,7 +66,7 @@ for (var i = 0; i < divs.length; i++) {
 
     nodeChildren = node.children
 
-    console.log(nodeChildren)
+    console.log(nodeChildren);
 
     // for (var i = 0; i < nodeChildren.length; i++) {
     //     console.log(nodeChildren.item(i)); //second console output
@@ -74,7 +74,7 @@ for (var i = 0; i < divs.length; i++) {
 
 
     // add properties to div
-    ;
+
 
     overlaysDiv.style.position = 'absolute';
     overlaysDiv.style.display = 'grid';
