@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, intial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title> Le Chrome Extension </title>
+  <title> Eye-Line </title>
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
-  <div class="modal-header">
-    <h1 class="logo">
+  <div class="modal-header" style="text-align:center">
+    <h1 class="logo" >
       <img src="camera-icon.png" alt="icon" class="logo-icon" />
-      Chrome Extension  <span class="version">(1.0.0)</span>
+      Eye-Line
     </h1>
   </div>
   <div class="modal-content">
-    <p> enable eye therapy settings </p>
+    <p> Amblyopia Therapy </p>
     <button id = "changeColor">Place color therapy bars</button>
     <button id = "removeBars">Remove bars</button>
     <button id = "colorText">Color the text</button>
@@ -24,29 +26,16 @@
 
   <!-- settings menu -->
   <div class="dropdown">
-  <button class="dropbtn">settings</button>
-  <form class="dropdown-content">
-    <div id="left">
-      <p>Number of columns</p>
-      <input type="number" value="columns" id="nio"></input>
-       <input type="submit" name="submit"></input>
-    </div>
-    <div id="right">
-      <div id="rr">
-        <input type="color" value="#ff0000">
-        <p class="text"> column two color:</p>
-      </div>
-
-      <div id="rl">
-          <input type="color" value="#ff0000">
-        <p class="text"> column one color:</p>
-      </div>
-    </div>
-
-    </div>
+    <button class="dropbtn" >settings</button>
+    <form class="dropdown-content">
+      <p class="colsInput" style="padding-left: 4px">Number of columns</p>
+      <input type="number" value="columns" id="nio" ></input>
+      <input type="submit" name="submit" ></input>
+  </div>
   </form>
   </div>
 
   <script src="popup.js"></script>
 </body>
+
 </html>
