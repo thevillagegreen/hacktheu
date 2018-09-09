@@ -1,0 +1,79 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 'form preview'
+}
+
+.form {
+  grid-area: 'form';
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 'left right'
+}
+
+.preview {
+  grid-area: 'preview'
+}
+
+#left-view {
+  grid-area: 'left';
+	width: 50vw;
+	height: 50vh;
+	background: #1E2D2F;
+	display: none;
+	justify-content: center;
+	align-items: center;
+}
+
+/* #right-view {
+  grid-area: 'right';
+	width: 50vw;
+	height: 50vh;
+	background: #1E2D2F;
+	display: none;
+	justify-content: center;
+	align-items: center;
+} */
+
+#color_left {
+  border: none;
+  width: 100px;
+  height: 100px;
+  outline: none;
+  padding: 4px;
+  box-shadow: 1px 0px 3px #333, -1px 0px 3px #333;
+}
+
+#color_right {
+  border: none;
+  width: 100px;
+  height: 100px;
+  outline: none;
+  padding: 4px;
+  box-shadow: 1px 0px 3px #333, -1px 0px 3px #333;
+}
+
+input[type="button"] {
+  padding: 10px 15px;
+  border: none;
+  background-color: #333;
+  color: white;
+}
+
+p#output_left {
+  color: white;
+  letter-spacing: 1px;
+}
+
+p#output_right {
+  color: white;
+  letter-spacing: 1px;
+}
+
+input[type="button"]:hover {
+  background-color: #444;
+  cursor: pointer;
+  transition: .2s linear;
+}
+
+
