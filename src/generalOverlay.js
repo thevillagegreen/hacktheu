@@ -4,6 +4,12 @@ var colNum;
 var color1_;
 var color2_;
 
+var pTags = document.getElementsByTagName('p');
+for (var p = 0; p < pTags.length; p++) {
+  pTags[p].style.zIndex = 100000;
+  pTags[p].style.position = 'relative';
+}
+
 chrome.storage.sync.get('over_color1', function(data) {
   color1_ = data.over_color1;
   chrome.storage.sync.get('over_color2', function(result) {
@@ -16,11 +22,7 @@ chrome.storage.sync.get('over_color1', function(data) {
   });
 
 
-  var pTags = document.getElementsByTagName('p');
-  for (var p = 0; p < pTags.length; p++) {
-    pTags[p].style.zIndex = 100000;
-    pTags[p].style.position = 'relative';
-  }
+
 
 
 // colors to display
