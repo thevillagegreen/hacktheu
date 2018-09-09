@@ -2,12 +2,16 @@
 // colors to display
 var color1_;
 var color2_;
-
+// set number of columns you want to be displayed
+var colNum;
 chrome.storage.sync.get('over_color1', function(data) {
   color1_ = data.over_color1;
   chrome.storage.sync.get('over_color2', function(result) {
       color2_ = result.over_color2;
-      main();
+      chrome.storage.sync.get('cols', function(cdata) {
+        colNum = cdata.cols;
+        main();
+      });
     });
   });
 
@@ -54,10 +58,6 @@ function main(){
     exit();
   }
 
-
-  // set number of columns you want to be displayed
-  var colNum = 18;
-
   nodes = [];
   for (var i = 0; i < divs.length; i++) {
     if (divs[i].length !== 0) {
@@ -91,7 +91,7 @@ function main(){
       overlaysDiv.style.display = 'grid';
       overlaysDiv.style.gridTemplateColumns = `repeat(${colNum}, 1fr)`
       overlaysDiv.style.gridTemplateRows = '1fr';
-      overlaysDiv.style.width = '100vw';
+      overlaysDiv.style.width = '100%';
       overlaysDiv.style.height = (height+20) + "px";
 
 

@@ -40,16 +40,15 @@ changeTextColor.onclick = function(element) {
     var url = tabs[0].url;
     if (/read\.amazon\.com/.test(url)) {
       chrome.tabs.executeScript(
-      tabs[0].id, {
-        file: "kindleText.js"
-      });
+        tabs[0].id, {
+          file: "kindleText.js"
+        });
 
-    }
-    else {
+    } else {
       chrome.tabs.executeScript(
-      tabs[0].id, {
-        file: "changeTextColor.js"
-      });
+        tabs[0].id, {
+          file: "changeTextColor.js"
+        });
     }
 
   });
@@ -65,16 +64,15 @@ removeTextColor.onclick = function(element) {
     var url = tabs[0].url;
     if (/read\.amazon\.com/.test(url)) {
       chrome.tabs.executeScript(
-      tabs[0].id, {
-        file: "removeKindleText.js"
-      });
+        tabs[0].id, {
+          file: "removeKindleText.js"
+        });
 
-    }
-    else {
+    } else {
       chrome.tabs.executeScript(
-      tabs[0].id, {
-        file: "removeTextColor.js"
-      });
+        tabs[0].id, {
+          file: "removeTextColor.js"
+        });
     }
   });
 };
@@ -109,9 +107,14 @@ removeBars.onclick = function(element) {
       }
     }
 
-    // chrome.tabs.executeScript(
-    //   tabs[0].id,
-    //   {file:"removeWikipediaBars.js"}
-    // );
   });
 };
+
+
+let colSubmit = document.getElementById("colSubmit");
+
+colSubmit.onclick = function(element) {
+  chrome.storage.sync.set({cols: document.getElementById("nio").value}, function() {
+    console.log("The color is green.");
+  });
+}

@@ -3,12 +3,17 @@
 // colors to display
 color1_ = 'red';
 color2_ = 'blue';
+// set number of columns you want to be displayed
+var colNum;
 
 chrome.storage.sync.get('over_color1', function(data) {
   color1_ = data.over_color1;
   chrome.storage.sync.get('over_color2', function(result) {
       color2_ = result.over_color2;
-      main();
+      chrome.storage.sync.get('cols', function(cdata) {
+        colNum = cdata.cols;
+        main();
+      });
     });
   });
 
@@ -23,8 +28,7 @@ function main() {
   var height = container.clientHeight
   var overlaysDiv = innerDoc.createElement('div');
 
-  // set number of columns you want to be displayed
-  var colNum = 24;
+
 
   overlaysDiv.style.position = 'absolute';
   overlaysDiv.style.display = 'grid';
