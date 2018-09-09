@@ -122,7 +122,7 @@ document.getElementById('over-leftBtn').addEventListener('click', function(event
       if(index%4 === 0) {
         color = over_color1_
       } else {
-        color = color2_
+        color = overlaysDiv.children[index].style.backgroundColor
       }
     }
     overlaysDiv.children[index].style.backgroundColor = color
@@ -140,7 +140,7 @@ document.getElementById('over-rightBtn').addEventListener('click', function(even
     var color = 'translucent';
     if(index%2 === 0) {
       if(index%4 === 0) {
-        color = color1_
+        color = overlaysDiv.children[index].style.backgroundColor;
       } else {
         color = over_color2_
       }

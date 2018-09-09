@@ -25,4 +25,4 @@ chrome.runtime.onInstalled.addListener(function() {
   });
 });
 
-chrome.tabs.create({ url: "options.html" });
+chrome.tabs.create({ url: "../pages/options.html" });

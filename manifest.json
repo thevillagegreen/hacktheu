@@ -4,12 +4,12 @@
   "description": "HackTheU",
   "manifest_version": 2,
   "browser_action": {
-    "default_popup": "popup.html"
+    "default_popup": "pages/popup.html"
   },
-  "options_page": "options.html",
+  "options_page": "pages/options.html",
   "permissions": ["storage", "declarativeContent", "activeTab"],
   "background": {
-    "scripts": ["background.js"],
+    "scripts": ["src/background.js"],
     "persistent": false
   }
 }

@@ -58,9 +58,6 @@ function color(content_iframe){
 
 }
 
-
-
-
 function chunk (arr, len) {
 
   var chunks = [],

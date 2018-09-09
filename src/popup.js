@@ -10,20 +10,20 @@ changeColor.onclick = function(element) {
     if (/read\.amazon\.com/.test(url)) {
       chrome.tabs.executeScript(
         tabs[0].id, {
-          file: "kindleOverlay.js"
+          file: "src/kindleOverlay.js"
         });
     } else if (/wikipedia\.org/.test(url)) {
       {
         chrome.tabs.executeScript(
           tabs[0].id, {
-            file: "wikipediaOverlay.js"
+            file: "src/wikipediaOverlay.js"
           });
       }
     } else {
       {
         chrome.tabs.executeScript(
           tabs[0].id, {
-            file: "generalOverlay.js"
+            file: "src/generalOverlay.js"
           });
       }
     }
@@ -41,13 +41,13 @@ changeTextColor.onclick = function(element) {
     if (/read\.amazon\.com/.test(url)) {
       chrome.tabs.executeScript(
         tabs[0].id, {
-          file: "kindleText.js"
+          file: "src/kindleText.js"
         });
 
     } else {
       chrome.tabs.executeScript(
         tabs[0].id, {
-          file: "changeTextColor.js"
+          file: "src/changeTextColor.js"
         });
     }
 
@@ -65,13 +65,13 @@ removeTextColor.onclick = function(element) {
     if (/read\.amazon\.com/.test(url)) {
       chrome.tabs.executeScript(
         tabs[0].id, {
-          file: "removeKindleText.js"
+          file: "src/removeKindleText.js"
         });
 
     } else {
       chrome.tabs.executeScript(
         tabs[0].id, {
-          file: "removeTextColor.js"
+          file: "src/removeTextColor.js"
         });
     }
   });
@@ -89,20 +89,20 @@ removeBars.onclick = function(element) {
     if (/read\.amazon\.com/.test(url)) {
       chrome.tabs.executeScript(
         tabs[0].id, {
-          file: "removeKindleOverlay.js"
+          file: "src/removeKindleOverlay.js"
         });
     } else if (/wikipedia\.org/.test(url)) {
       {
         chrome.tabs.executeScript(
           tabs[0].id, {
-            file: "removeWikipediaBars.js"
+            file: "src/removeWikipediaBars.js"
           });
       }
     } else {
       {
         chrome.tabs.executeScript(
           tabs[0].id, {
-            file: "removeGeneralOverlay.js"
+            file: "src/removeGeneralOverlay.js"
           });
       }
     }
