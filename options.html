@@ -2,11 +2,22 @@
 <html>
   <head>
     <style>
-
+    header {
+              background-color: #666;
+              padding: 20px;
+              text-align: center;
+              font-size: 25px;
+              color: white;
+            }
     </style>
     <link rel="stylesheet" href="canvas.css">
   </head>
   <body>
+    <header>
+      <h2>Configure Colors</h2>
+    </header>
+    <h3 style = "text-align:center">WARNING: Consult with optometrist or ophthalmologist before use.</h3>
+    <br>
     <div class = "container">
       <div class = "form">
         <div id="left-eye-select">
@@ -24,13 +35,6 @@
           <br><br>
           <input type="button" id = 'rightBtn' value="SHOW">
           <p id="output_right"></p>
-        </div>
-
-        <div id="buttonDiv">
-
-        </div>
-        <div>
-          <p>Choose a different background color!</p>
         </div>
       </div>
 
@@ -51,7 +55,20 @@ Curabitur blandit tempus ardua ridiculus sed magna. Salutantibus vitae elit libe
         </p>
       </div>
     </div>
-
+    <br>
+        <h2 style="text-align: center">INSTRUCTIONS</h2>
+        <ol style="font-size:125%">
+          <li>Put on anaglyph or medical grade red-green glasses.</li>
+          <li>Configure colors to match glasses.</li>
+          <li>Open Kindle, Wikipedia, Medium, or any other site the extension colorizes.</li>
+          <li>Zoom in or out of webpage to configure difficulty.
+            <ul>
+              <li>ZOOM IN: Press "Ctrl" and "+" <i>Cmd if Mac</i></li>
+              <li>ZOOM OUT: Press "Ctrl" and "-" <i>Cmd if Mac</i></li>
+            </ul>
+          <li>Follow instructions for reading bar antisuppression therapy, as provided by your vision therapy provider.</li>
+          <li>TRAIN EVERYDAY! Studies using similar techniques have indicated that improvements in visual acuity may occur in as little as 10-12hrs (based on training for 1hr per day) for adults. </li>
+        </ol>
   </body>
   <script src="options.js"></script>
   <!-- <script src="colorWheel.js"></script> -->
