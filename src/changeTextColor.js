@@ -30,6 +30,7 @@ function main(){
       }
       pSection = chunk.join(" ") + " ";
       newSpan = document.createElement("span")
+      newSpan.classList.add("spanColor");
       newSpan.innerText = pSection
       newSpan.style.color = color;
       newSpan.style.fontSize = '1em';

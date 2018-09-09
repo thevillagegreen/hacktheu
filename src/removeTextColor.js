@@ -7,5 +7,5 @@ coloredSpans.forEach(function(elem) {
 var paras = [].slice.call(document.getElementsByClassName("colorChangeP"));
 
 paras.forEach(function(elem) {
-  elem.style.background = 'white';
+  elem.style.backgroundColor = 'transparent';
 });
