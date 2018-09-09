@@ -42,11 +42,21 @@ changeTextColor.onclick = function(element) {
     active: true,
     currentWindow: true
   }, function(tabs) {
-    chrome.tabs.executeScript(
+    var url = tabs[0].url;
+    if (/read\.amazon\.com/.test(url)) {
+      chrome.tabs.executeScript(
+      tabs[0].id, {
+        file: "kindleText.js"
+      });
+
+    }
+    else {
+      chrome.tabs.executeScript(
       tabs[0].id, {
         file: "changeTextColor.js"
-      }
-    );
+      });
+    }
+
   });
 };
 
