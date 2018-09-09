@@ -16,6 +16,13 @@ chrome.storage.sync.get('over_color1', function(data) {
   });
 
 
+  var pTags = document.getElementsByTagName('p');
+  for (var p = 0; p < pTags.length; p++) {
+    pTags[p].style.zIndex = 100000;
+    pTags[p].style.position = 'relative';
+    
+  }
+
 
 // colors to display
 
@@ -47,10 +54,10 @@ function generateBars(paragraph) {
     if (j % 2 === 0) {
       if (j % 4 === 0) {
         colDiv.style.backgroundColor = color1_;
-        colDiv.style.opacity = 0.7;
+        colDiv.style.opacity = 1;
       } else {
         colDiv.style.backgroundColor = color2_;
-        colDiv.style.opacity = 0.7;
+        colDiv.style.opacity = 1;
       }
     }
     // assign grid index to div

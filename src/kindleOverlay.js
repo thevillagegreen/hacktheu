@@ -1,4 +1,39 @@
 
+var iframe = document.getElementById('KindleReaderIFrame');
+var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+
+var content = innerDoc.getElementById('kindleReader_content')
+
+
+
+var color1_;
+var color2_;
+
+// chrome.storage.sync.get('alt_color1', function(data) {
+//   color1_ = data.alt_color1;
+//   chrome.storage.sync.get('alt_color2', function(result) {
+//       color2_ = result.alt_color2;
+//       content_iframeINPUT = innerDoc.getElementById('column_0_frame_1');
+//       color(content_iframeINPUT);
+//       content_iframeINPUT = innerDoc.getElementById('column_0_frame_0');
+//       color(content_iframeINPUT);
+//     });
+//   });
+
+content_iframe = innerDoc.getElementById('column_0_frame_1');
+var contentDoc = content_iframe.contentDocument || content_iframe.contentWindow.document;
+
+
+var pTags = contentDoc.getElementsByTagName('span');
+
+for (var p = 0; p < pTags.length; p++) {
+  //console.log('hello')
+  console.log(pTags[p])
+  pTags[p].style.zIndex = 100000;
+  pTags[p].style.position = 'relative';
+  
+}
+
 
 // colors to display
 color1_ = 'red';
@@ -59,7 +94,7 @@ function main() {
     // append to display div
     overlaysDiv.appendChild(colDiv);
   }
-  container.style.position = 'relative'
+  //container.style.position = 'relative'
   container.appendChild(overlaysDiv)
 
   console.log(container)

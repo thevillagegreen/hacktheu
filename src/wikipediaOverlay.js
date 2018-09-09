@@ -1,4 +1,13 @@
 
+
+var pTags = document.getElementsByTagName('p');
+for (var p = 0; p < pTags.length; p++) {
+  pTags[p].style.zIndex = 100000;
+  pTags[p].style.position = 'relative';
+  
+}
+
+
 // colors to display
 var color1_;
 var color2_;
@@ -32,19 +41,7 @@ function generatePartitions(parentDiv, length) {
   }
   return Divs;
 }
-//parent = document.getElementById("mw-content-text").firstChild;
-/*parent.prepend(document.createElement("div"));
-newDiv = parent.firstChild;
-newDiv.appendChild(document.createElement("h1"));
-console.log("test");
-t = 0;
-total = 0;
-divs.forEach(function(element) {
-  console.log("This "+t+" has: " + element.length);
-  t++;
-  total = total+element.length;
-});
-console.log(total);*/
+
 
 function main(){
   divs = generatePartitions(document.getElementById("mw-content-text").firstChild.childNodes, document.getElementById("mw-content-text").firstChild.childNodes.length);
@@ -104,10 +101,10 @@ function main(){
         if (j % 2 === 0) {
           if (j % 4 === 0) {
             colDiv.style.backgroundColor = color1_;
-            colDiv.style.opacity = 0.7;
+            colDiv.style.opacity = 1;
           } else {
             colDiv.style.backgroundColor = color2_;
-            colDiv.style.opacity = 0.7;
+            colDiv.style.opacity = 1;
           }
         }
         // assign grid index to div
@@ -133,44 +130,4 @@ function main(){
   });
 
 }
-// when user resizes screen, update paragraph height to grid
-// window.onresize = function() {
-//   for (var i = 0; i < paragraphs.length; i++) {
-//     // the overlay is the first child of paragraph div
-//     var overlaysDiv = paragraphs[i].children[0];
-//     // get height of the paragraph
-//     paragraphHeight = paragraphs[i].clientHeight;
-//     // set the div to the exact height of the paragraph
-//     overlaysDiv.style.height = paragraphHeight + "px";
-//   }
-//   location.reload();
-// };
-// for(var i = 0; i < divs.length-1; i ++) {
-//   console.log(i);
-//   var inserted = divs[i][0].insertBefore(document.createElement("div"), null);
-//   for(var j =0; j < divs[i].length; j++) {
-//     inserted.appendChild(divs[i][j]);
-//   }
-// };
-//
-// divs.forEach(function(element){
-//   console.log("test");
-//   element.forEach(function(element){
-//     element.style.color="#ff00000";
-//   });
-// });
-/*for (var i = 0; i< divs[3].length; i++) {
 
-  if( i == 0) {
-    console.log(i);
-  }
-  else{
-    console.log(i);
-    console.log(divs[3][i].nodeName);
-    newDiv.appendChild(divs[3][i], null);
-  }
-}
-
-newDiv.childNodes.forEach(function(element) {
-  element.style.color="#ffff00";
-})*/
