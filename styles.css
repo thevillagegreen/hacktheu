@@ -1,14 +1,15 @@
 html, body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: sans-serif;
   font-size: 14px;
   margin: 0;
   padding: 0;
   width: 304px;
+  height: auto;
 }
 
 h1 {
-  font-family: 'Menlo';
-  font-size: 22px;
+  font-family: sans-serif;
+  font-size: 18px;
   font-weight: 400;
   margin: 0;
   color: #2f5876;
@@ -43,6 +44,7 @@ img {
   width: 98%;
   float: left;
 }
+
 
 .modal-icons {
   border-top: 0.5px solid #dadada;
@@ -209,4 +211,35 @@ h3 {
   margin-top: 9px;
   padding-top: 5px;
   float: none;
+}
+#changeColor {
+  border-radius: 25px;
+  height: 25px;
+  width: 65%;
+  float: none;
+  margin: auto;
+  display: block;
+  margin-bottom: 6px;
+  cursor: pointer;
+}
+
+#changeColor:hover {
+  background-color: white;
+  color: black;
+}
+
+#colorText {
+    border-radius: 25px;
+    height: 25px;
+    width: 65%;
+    float: none;
+    margin: auto;
+    display: block;
+    margin-bottom: 6px;
+    cursor: pointer;
+}
+
+button {
+  border-style: none;
+  margin-bottom: 5px;
 }
