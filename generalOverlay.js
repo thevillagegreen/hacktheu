@@ -2,7 +2,7 @@
 var colNum = 18;
 
 var color1_;
-var color2_ = 'blue';
+var color2_;
 
 chrome.storage.sync.get('color1', function(data) {
   color1_ = data.color1;
