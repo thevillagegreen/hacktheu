@@ -2,7 +2,7 @@ chrome.runtime.onInstalled.addListener(function() {
   chrome.storage.sync.set({cols: 18}, function() {
     console.log("The color is green.");
   });
-  chrome.storage.sync.set({alt_color1: '#cc0000'}, function() {
+  chrome.storage.sync.set({alt_color1: '#ff0000'}, function() {
     console.log("The color is green.");
   });
   chrome.storage.sync.set({alt_color2: '#75f0f0'}, function() {

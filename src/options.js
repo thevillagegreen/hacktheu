@@ -26,7 +26,7 @@ for (var p = 0; p < pTags.length; p++) {
 // colors to display
 color1_ = '#cc0000';
 color2_ = '#007800';
-color3_ = '#cc0000';
+color3_ = '#ff0000';
 color4_ = '#75f0f0';
 
 
