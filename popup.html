@@ -6,7 +6,6 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title> Le Chrome Extension </title>
   <link rel="stylesheet" href="styles.css" />
-  <!-- ignore this ////////  <script src="popup.js"></script> -->
 </head>
 <body>
   <div class="modal-header">
@@ -17,15 +16,13 @@
   </div>
   <div class="modal-content">
     <p> enable eye therapy settings </p>
-    <button id = "changeColor">Insert bars</button>
-    <button id = "removeBars">Remove bars</button>
+    <button id = "changeColor">Place color therapy bars</button>
     <button id = "colorText">Color the text</button>
-    <button id = "removeColorText">Remove text colorization</button>
   </div>
 
   <!-- settings menu -->
   <div class="dropdown">
-  <button class="dropbtn">SETTINGS</button>
+  <button class="dropbtn">settings</button>
   <form class="dropdown-content">
     <div id="left">
       <p>Number of columns</p>
@@ -34,15 +31,13 @@
     </div>
     <div id="right">
       <div id="rr">
-        <input type="text" name="col-one"></input>
-        <input type="submit" name="col-one-sub"></input>
-        <p class="text"> column one (hex value):</p>
+        <input type="color" value="#ff0000">
+        <p class="text"> column two color:</p>
       </div>
 
       <div id="rl">
-        <input type="text" name="col-two"> </input>
-        <input type="submit" name="col-two-sub"> </input>
-        <p class="text"> column two (hex value):</p>
+          <input type="color" value="#ff0000">
+        <p class="text"> column one color:</p>
       </div>
     </div>
 
