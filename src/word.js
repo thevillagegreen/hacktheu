@@ -1,112 +1,43 @@
-colNum = 4;
+var div = document.getElementsByClassName('paragraph')[0];
+var p1 = document.getElementsByTagName('p')[0];
+//console.log(p1)
+
+color1 = 'red'
+color2 = 'green'
+
+p1Split = p1.innerText.split(/\s/);
+
+p1Chunks = chunk(p1Split, 3);
+console.log(p1Chunks);
 
 
-splitLines();
-showLines();
+var newP = document.createElement('p');
 
-
-function showLines() {
-  var lines = getLines();
-  // console.log(
-  //   lines.map(function(line) {
-  //     return line.map(function(span) {
-  //       return span.innerText;
-  //     }).join(' ')
-  //   }));
-}
-
-function splitLines() {
-  var p = document.getElementsByTagName('p')[0];
-  p.innerHTML = p.innerText.split(/\s/).map(function(word, index) {
-    return '<span>' + word + '</span>'
-  }).join(' ');
-}
-
-
-
-function getLines() {
-  var lines = [];
-  var line;
-  var p = document.getElementsByTagName('p')[0];
-  var words = p.getElementsByTagName('span');
-  var lastTop;
-
-  for (var i = 0; i < words.length; i++) {
-    
-    var word = words[i];
-    if (word.offsetTop != lastTop) {
-      
-      lastTop = word.offsetTop;
-      line = [];
-      lines.push(line);
-      
+p1Chunks.forEach((chunk, index) => {
+  var color = 'black';
+  if(index%2 === 0) {
+    if(index%4 === 0) {
+      color = color2
+    } else {
+      color = color1
     }
-    line.push(word);
-    
   }
-  
-  var cols = 6;
-  lines.forEach( (line, lineIndex) => {
-    var lineLength = line.length
-    var increment = Math.floor(lineLength/cols);
-    var arr = Array.apply(null, {length: lineLength}).map(Number.call, Number)
-    var chunks = chunk(arr, increment)
-    line.forEach( (word, wordIndex) => {
-      //var color = getColor(wordIndex, lineIndex, 5);
-      returnColor = 'black'
-      chunks.forEach((chunk,index) => {
-        if(chunk.indexOf(wordIndex) > -1) {
-          if(index%2 === 0) {
-            if(index%4 === 0) {
-              returnColor = 'green';
-            } else {
-              returnColor = 'red';
-            } 
-          } else {
-            returnColor = 'black';
-          }
-        }
-        
-      })
-      word.style.color = returnColor;
-    }) 
-  });
-  
-  return lines;
+  pSection = chunk.join(" ") + " ";
+  newSpan = document.createElement("span")
+  newSpan.innerText = pSection
+  newSpan.style.color = color;
+  newSpan.style.fontSize = '2em';
+  newP.appendChild(newSpan);
+  //console.log(newSpan);
+})
+
+while (div.firstChild) {
+    div.removeChild(div.firstChild);
 }
 
-// function getColor(wordIndex, lineLength, cols) {
-//   var increment = Math.floor(lineLength/cols);
-//   var N = lineLength; 
-//   arr = Array.apply(null, {length: N}).map(Number.call, Number)
-//   chunks = chunk(arr, increment) // create chunks from array sized by increment
+div.appendChild(newP)
 
-//   returnColor = 'black'
-//   chunks.forEach((chunk,index) => {
-//     if(chunk.indexOf(wordIndex) > -1) {
-//       if(index%2 === 0) {
-//         if(index%4 === 0) {
-//           returnColor = 'green';
-//         } else {
-//           returnColor = 'red';
-//         } 
-//       } else {
-//         returnColor = 'black';
-//       }
-//     }
-     
-//   })
-//   return returnColor
   
-// }
-
-
-window.onresize = function() {
-  splitLines();
-  showLines();
-};
-
-
 function chunk (arr, len) {
 
   var chunks = [],

@@ -54,7 +54,7 @@ for (var i = 0; i < divs.length; i++) {
     console.log(height)
 
     //var paragraphHeight = node.clientHeight;
-    
+
     nodeChildren = node.children
 
     console.log(nodeChildren)
@@ -73,7 +73,7 @@ for (var i = 0; i < divs.length; i++) {
     overlaysDiv.style.gridTemplateRows = '1fr';
     overlaysDiv.style.width = '100vw';
     overlaysDiv.style.height = (height+20) + "px";
-    
+
 
     // for each colNum, create col
     for (var j = 0; j < colNum; j++) {
@@ -96,9 +96,9 @@ for (var i = 0; i < divs.length; i++) {
       // append to display div
       overlaysDiv.appendChild(colDiv);
     }
-    
-    
-    
+
+
+
 
     divs[i].forEach(function(element) {
       var e = element.parentNode.removeChild(element);
