@@ -18,8 +18,11 @@
 var colNum = 12;
 
 // colors to display
-color1_ = 'red';
-color2_ = 'blue';
+color1_ = '#cc0000';
+color2_ = '#007800';
+color3_ = '#cc0000';
+color4_ = '#75f0f0';
+
 
 var overlaysDiv = document.getElementById('overlays')
 var p1 = document.getElementById('alternating')
@@ -68,9 +71,9 @@ var previewDiv = document.getElementById('preview')
     var color = 'black';
     if(index%2 === 0) {
       if(index%4 === 0) {
-        color = color2_
+        color = color4_
       } else {
-        color = color1_
+        color = color3_
       }
     }
     pSection = chunk.join(" ") + " ";
@@ -117,7 +120,7 @@ document.getElementById('over-leftBtn').addEventListener('click', function(event
     var color = 'translucent';
     if(index%2 === 0) {
       if(index%4 === 0) {
-        color = over_color1_ 
+        color = over_color1_
       } else {
         color = color2_
       }
@@ -139,7 +142,7 @@ document.getElementById('over-rightBtn').addEventListener('click', function(even
       if(index%4 === 0) {
         color = color1_
       } else {
-        color = over_color2_ 
+        color = over_color2_
       }
     }
     overlaysDiv.children[index].style.backgroundColor = color
@@ -167,10 +170,10 @@ document.getElementById('alt-leftBtn').addEventListener('click', function(event)
     }
     newP.children[i].style.color = color;
   }
-    
 
-  
-  
+
+
+
 });
 
 
@@ -191,6 +194,6 @@ document.getElementById('alt-rightBtn').addEventListener('click', function(event
     }
     newP.children[i].style.color = color;
   }
-    
+
 
 })
