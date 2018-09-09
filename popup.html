@@ -1,55 +1,254 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, intial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title> Le Chrome Extension </title>
-  <link rel="stylesheet" href="styles.css" />
-  <!-- ignore this ////////  <script src="popup.js"></script> -->
-</head>
-<body>
-  <div class="modal-header">
-    <h1 class="logo">
-      <img src="camera-icon.png" alt="icon" class="logo-icon" />
-      Chrome Extension  <span class="version">(1.0.0)</span>
-    </h1>
-  </div>
-  <div class="modal-content">
-    <p> enable eye therapy settings </p>
-    <button id = "changeColor">Insert bars</button>
-    <button id = "removeBars">Remove bars</button>
-    <button id = "colorText">Color the text</button>
-    <button id = "removeColorText">Remove text colorization</button>
-  </div>
+html, body {
+  font-family: sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  width: 304px;
+  height: auto;
+}
 
-  <!-- settings menu -->
-  <div class="dropdown">
-  <button class="dropbtn">SETTINGS</button>
-  <form class="dropdown-content">
-    <div id="left">
-      <p>Number of columns</p>
-      <input type="number" value="columns" id="nio"></input>
-       <input type="submit" name="submit"></input>
-    </div>
-    <div id="right">
-      <div id="rr">
-        <input type="text" name="col-one"></input>
-        <input type="submit" name="col-one-sub"></input>
-        <p class="text"> column one (hex value):</p>
-      </div>
+h1 {
+  font-family: sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0;
+  color: #2f5876;
+}
 
-      <div id="rl">
-        <input type="text" name="col-two"> </input>
-        <input type="submit" name="col-two-sub"> </input>
-        <p class="text"> column two (hex value):</p>
-      </div>
-    </div>
+a:link a:visited {
+  color: #000;
+  outline: 0;
+  text-decoration: none;
+}
 
-    </div>
-  </form>
-  </div>
+img {
+  width: 30px;
+}
 
-  <script src="popup.js"></script>
-</body>
-</html>
+.modal-header {
+  align-items: center;
+  border-bottom: 0.5px soid #dadada;
+}
+
+.modal-content p {
+  margin-left: 2%;
+  text-align: center;
+  width: 96%;
+  float: left;
+  font-size: 10px;
+}
+
+.modal-content button {
+  margin-right: 1%;
+  margin-left: 1%;
+  text-align: center;
+  width: 98%;
+  float: left;
+}
+
+
+.modal-icons {
+  border-top: 0.5px solid #dadada;
+  height: 50px;
+  width: 100%;
+}
+
+.logo {
+  padding: 16px;
+  padding-bottom: 2px;
+}
+
+.logo-icon {
+  vertical-align: text-bottom;
+  margin-right: 12px;
+}
+
+.version {
+  color: #444;
+  font-size: 18px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 22px;
+}
+
+.flex {
+  opacity: 1;
+  transition: opacity 0.2s eas-in-out;
+  width: 120px;
+}
+
+.flex:hover {
+  opacity: 0.4;
+}
+
+.flex .fa {
+  font-size: 40px;
+  color: #2f5876;
+}
+
+.dropbtn {
+    background-color: blue;
+    color: white;
+    height: 25px;
+    width: 98%;
+    font-size: 9px;
+    border: none;
+    cursor: pointer;
+    margin: 1%;
+        border-radius: 25px;
+        height: 25px;
+        width: 65%;
+        float: none;
+        margin: auto;
+        display: block;
+        margin-bottom: 6px;
+        cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    font-size: 15px;
+    font-weight: 100;
+    align-items: center;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+h3 {
+  font-size: 10px;
+  font-weight: 100;
+  margin: 0px;
+}
+
+.btn {
+  float: none;
+  margin-right: 50%;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: gray;
+}
+
+#left {
+  width: 47%;
+  float: left;
+  margin-right: 2;
+  font-size: 10px;
+  padding: 2px;
+}
+
+#left p {
+  width: 42%;
+  float: left;
+  margin-left: 6%;
+  line-height: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+#left input {
+  width: 50%;
+  font-size: 10px;
+}
+
+#left #nio {
+  width: 48%;
+  float: left;
+}
+
+#right {
+  margin-left: 1%;
+  width: 49%;
+  float: right;
+  padding: 2px;
+  text-align: center;
+}
+
+#rr {
+  width: 49%;
+  padding: auto;
+  float: right;
+  font-size: 9px;
+  margin-left: 1%;
+}
+
+#rl {
+  width: 50%;
+  padding: auto;
+  float: right;
+  font-size: 9px;
+}
+
+#rr input {
+    width: 96%;
+    float: right;
+    padding: 1%;
+}
+
+#rl input {
+    width: 96%;
+    float: right;
+    padding: 1%;
+}
+
+.text {
+  margin-top: 9px;
+  padding-top: 5px;
+  float: none;
+}
+#changeColor {
+  border-radius: 25px;
+  height: 25px;
+  width: 65%;
+  float: none;
+  margin: auto;
+  display: block;
+  margin-bottom: 6px;
+  cursor: pointer;
+}
+
+#changeColor:hover {
+  background-color: white;
+  color: black;
+}
+
+#colorText {
+    border-radius: 25px;
+    height: 25px;
+    width: 65%;
+    float: none;
+    margin: auto;
+    display: block;
+    margin-bottom: 6px;
+    cursor: pointer;
+}
+
+button {
+  border-style: none;
+  margin-bottom: 5px;
+}
