@@ -20,8 +20,9 @@ function generateBars(paragraph) {
   overlaysDiv.style.display = 'grid';
   overlaysDiv.style.gridTemplateColumns = `repeat(${colNum}, 1fr)`
   overlaysDiv.style.gridTemplateRows = '1fr';
-  overlaysDiv.style.width = '100vw';
-  overlaysDiv.style.height = (paragraph.clientHeight + 29) + "px";
+  overlaysDiv.style.width = paragraph.clientWidth + "px";
+  console.log(paragraph.clientWidth );
+  overlaysDiv.style.height = (paragraph.clientHeight + 8) + "px";
 
 
   // for each colNum, create col
