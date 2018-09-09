@@ -25,10 +25,6 @@ function color(content_iframe){
   // set number of columns you want to be displayed
   var colNum = 24;
 
-  // colors to display
-  color1 = 'red';
-  color2 = 'blue';
-
   var content_divs = contentDoc.querySelectorAll('[id^="a:"]');
   //console.log(content_divs.children)
 
