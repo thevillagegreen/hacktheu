@@ -17,7 +17,8 @@ function main(){
     wordSplit = element.innerText.split(/\s/);
     chunks = chunk(wordSplit,3);
     var newP = document.createElement('p');
-    //newP.style.backgroundColor = "#ff00ff";
+    newP.style.background = "#f2f2f2";
+    newP.classList.add("colorChangeP");
     chunks.forEach((chunk, index) => {
       var color = 'black';
       if(index%2 === 0) {
