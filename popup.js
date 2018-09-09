@@ -8,9 +8,21 @@ chrome.storage.sync.get('color', function(data) {
 changeColor.onclick = function(element) {
   let color = element.target.value;
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-    chrome.tabs.executeScript(
+    var url = tabs[0].url;
+    if(/read\.amazon\.com/.test(url))
+    {chrome.tabs.executeScript(
         tabs[0].id,
-        {file: "changeColor.js"});
+        {file: "kindleOverlay.js"});
+    }
+    else if (/wikipedia\.org/.test(url)) {
+      {chrome.tabs.executeScript(
+          tabs[0].id,
+          {file: "wikipediaOverlay.js"});
+      }
+    }
+    else {
+      //TODO what is the general case?
+    }
   });
 };
 
@@ -40,9 +52,26 @@ let removeBars = document.getElementById('removeBars');
 
 removeBars.onclick = function(element) {
   chrome.tabs.query({active:true, currentWindow:true}, function(tabs){
-    chrome.tabs.executeScript(
-      tabs[0].id,
-      {file:"removeBars.js"}
-    );
+
+    var url = tabs[0].url;
+    if(/read\.amazon\.com/.test(url))
+    {chrome.tabs.executeScript(
+        tabs[0].id,
+        {file: "removeKindleOverlay.js"});
+    }
+    else if (/wikipedia\.org/.test(url)) {
+      {chrome.tabs.executeScript(
+          tabs[0].id,
+          {file: "removeWikipediaBars.js"});
+      }
+    }
+    else {
+      //TODO what is the general case?
+    }
+
+    // chrome.tabs.executeScript(
+    //   tabs[0].id,
+    //   {file:"removeWikipediaBars.js"}
+    // );
   });
 };

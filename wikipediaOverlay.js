@@ -1,3 +1,12 @@
+var cols = [].slice.call(document.getElementsByClassName("column"));
+
+if(cols.length > 0) {
+  cols.forEach(function(elem){
+    elem.style.opacity = 0.7;
+  });
+  exit();
+}
+
 function generatePartitions(parentDiv, length) {
   Divs = [];
   currentDiv = [];
