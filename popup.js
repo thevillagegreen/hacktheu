@@ -21,7 +21,10 @@ changeColor.onclick = function(element) {
       }
     }
     else {
-      //TODO what is the general case?
+      {chrome.tabs.executeScript(
+          tabs[0].id,
+          {file: "generalOverlay.js"});
+      }
     }
   });
 };
