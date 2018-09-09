@@ -16,18 +16,32 @@ var right_button = document.getElementById('button-right');
 var left_view = document.getElementById('left-view');
 var right_view = document.getElementById('right-view');
 
+var overlayDiv = document.getElementById('overlayDiv');
+var alterP = document.getElementById('alternating');
+
+
 
 left_button.addEventListener('click', function(event){
   right_view.style.display = 'none';
-  let colorWheel = new ColorWheel(350, '#left-view');
+  let colorWheel = new ColorWheel(350, '#left-view', 'left');
   left_view.style.display = 'flex';
+  left_button.innerText = 'Confirm Color';
+  left_button.addEventListener('click', function(event){
+    //confirm color
+  })
 })
 
 right_button.addEventListener('click', function(event){
   left_view.style.display = 'none';
-  let colorWheel = new ColorWheel(350, '#right-view');
+  let colorWheel = new ColorWheel(350, '#right-view', 'right');
   right_view.style.display = 'flex';
+  right_button.innerText = 'Confirm Color';
+  right_button.addEventListener('click', function(event){
+    //confirm color
+  })
 })
+
+
 
 
 rgbToHsl = (r, g, b) => {
@@ -51,7 +65,7 @@ rgbToHsl = (r, g, b) => {
 }
 
 class ColorWheel {
-	constructor(size, parent) {
+	constructor(size, parent, side) {
 		// canvas setup
 		this.width = size;
 		this.height = size;

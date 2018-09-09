@@ -11,13 +11,19 @@
       <div class = "form">
         <div id="left-eye-select">
           <h4>Change Left Eye Color</h4>
-          <button id="button-left">Select Color</button>
-          <div id='left-view'></div>
+          <p class="heading">Choose Color</p>
+          <input type="color" name="color_left" id="color_left">
+          <br><br>
+          <input type="button" onClick="processLeftColor('color_left')" value="SHOW">
+          <p id="output_left"></p>
         </div>
         <div id="right-eye-select">
           <h4>Change Right Eye Color</h4>
-          <button id="button-right">Select Color</button>
-          <div id='right-view'></div>
+          <p class="heading">Choose Color</p>
+          <input type="color" name="color_right" id="color_right">
+          <br><br>
+          <input type="button" onClick="processRightColor('color_right')" value="SHOW">
+          <p id="output_right"></p>
         </div>
     
         <div id="buttonDiv">
@@ -31,8 +37,12 @@
   
       <div id="preview">
         <div id="overlayDiv">
-            <p id="overlay">
-                Plura mihi bona sunt, inclinet, amari petere vellent. Nihil hic munitissimus habendi senatus locus, nihil horum? Tityre, tu patulae recubans sub tegmine fagi dolor. Ullamco laboris nisi ut aliquid ex ea commodi consequat.
+            <div id="overlays"></div>
+            <p id="overlayParagraph">
+                Tityre, tu patulae recubans sub tegmine fagi dolor. Ut enim ad minim veniam, quis nostrud exercitation. Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ullamco laboris nisi ut aliquid ex ea commodi consequat.
+Gallia est omnis divisa in partes tres, quarum. At nos hinc posthac, sitientis piros Afros. Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae. Quam temere in vitiis, legem sancimus haerentia. Ab illo tempore, ab est sed immemorabili. Tu quoque, Brute, fili mi, nihil timor populi, nihil!
+Magna pars studiorum, prodita quaerimus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus. Excepteur sint obcaecat cupiditat non proident culpa. Unam incolunt Belgae, aliam Aquitani, tertiam. Qui ipsorum lingua Celtae, nostra Galli appellantur. Contra legem facit qui id facit quod lex prohibet.
+Curabitur blandit tempus ardua ridiculus sed magna. Salutantibus vitae elit libero, a pharetra augue. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Morbi fringilla convallis sapien, id pulvinar odio volutpat.
             </p>
         </div>
         
@@ -44,5 +54,5 @@
     
   </body>
   <script src="options.js"></script>
-  <script src="colorWheel.js"></script>
+  <!-- <script src="colorWheel.js"></script> -->
 </html>
