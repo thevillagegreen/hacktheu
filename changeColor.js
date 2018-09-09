@@ -33,9 +33,9 @@ console.log(total);*/
 
 for(var i = 0; i < divs.length-1; i ++) {
   console.log(i);
-  divs[i][0].insertBefore(document.createElement("div"), null);
-  for(var j =1; j < divs[i].length; j++) {
-    divs[i][0].appendChild(divs[i][j]);
+  var inserted = divs[i][0].insertBefore(document.createElement("div"), null);
+  for(var j =0; j < divs[i].length; j++) {
+    inserted.appendChild(divs[i][j]);
   }
 };
 
