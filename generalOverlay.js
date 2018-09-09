@@ -1,6 +1,6 @@
 // set number of columns you want to be displayed
-var colNum = 18;
 
+var colNum;
 var color1_;
 var color2_;
 
@@ -8,7 +8,10 @@ chrome.storage.sync.get('over_color1', function(data) {
   color1_ = data.over_color1;
   chrome.storage.sync.get('over_color2', function(result) {
       color2_ = result.over_color2;
-      main();
+      chrome.storage.sync.get('cols', function(cdata) {
+        colNum = cdata.cols;
+        main();
+      });
     });
   });
 
