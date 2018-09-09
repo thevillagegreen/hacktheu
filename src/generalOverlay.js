@@ -20,7 +20,6 @@ chrome.storage.sync.get('over_color1', function(data) {
   for (var p = 0; p < pTags.length; p++) {
     pTags[p].style.zIndex = 100000;
     pTags[p].style.position = 'relative';
-    
   }
 
 
