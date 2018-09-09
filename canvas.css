@@ -1,0 +1,17 @@
+.view {
+	width: 50vw;
+	height: 50vh;
+	background: #1E2D2F;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+canvas {
+	position: absolute;
+	box-sizing: border-box;
+	&:first-child {
+		background-color: rgba(#1E2D2F, 1);
+		padding: 10px;
+  }
+}
