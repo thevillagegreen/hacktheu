@@ -10,6 +10,26 @@
 // https://gist.github.com/conorbuck/2606166
 // http://stackoverflow.com/questions/2049582/how-to-determine-if-a-point-is-in-a-2d-triangle
 
+var left_button = document.getElementById('button-left');
+var right_button = document.getElementById('button-right');
+
+var left_view = document.getElementById('left-view');
+var right_view = document.getElementById('right-view');
+
+
+left_button.addEventListener('click', function(event){
+  right_view.style.display = 'none';
+  let colorWheel = new ColorWheel(350, '#left-view');
+  left_view.style.display = 'flex';
+})
+
+right_button.addEventListener('click', function(event){
+  left_view.style.display = 'none';
+  let colorWheel = new ColorWheel(350, '#right-view');
+  right_view.style.display = 'flex';
+})
+
+
 rgbToHsl = (r, g, b) => {
     r /= 255, g /= 255, b /= 255;
     var max = Math.max(r, g, b), min = Math.min(r, g, b);
@@ -218,5 +238,6 @@ class ColorWheel {
 		this.draw( 230, 30, false );
 	}
 }
+//let colorWheel = new ColorWheel(350, document.getElementById('left-eye-select'));
 
-let colorWheel = new ColorWheel(350, '.view');
+let colorWheel = new ColorWheel(350, '#right-view');

@@ -1,8 +1,17 @@
-.view {
+#left-view {
 	width: 50vw;
 	height: 50vh;
 	background: #1E2D2F;
-	display: flex;
+	display: none;
+	justify-content: center;
+	align-items: center;
+}
+
+#right-view {
+	width: 50vw;
+	height: 50vh;
+	background: #1E2D2F;
+	display: none;
 	justify-content: center;
 	align-items: center;
 }
