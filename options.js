@@ -23,15 +23,15 @@ color2_ = 'blue';
 
 var overlaysDiv = document.getElementById('overlays')
 var p1 = document.getElementById('alternating')
+var previewDiv = document.getElementById('preview')
 
-function overlays() {
   paragraphHeight = document.getElementById('overlayParagraph').clientHeight;
   // set the div to the exact height of the paragraph
   overlaysDiv.style.position = 'absolute';
   overlaysDiv.style.display = 'grid';
   overlaysDiv.style.gridTemplateColumns = `repeat(${colNum}, 1fr)`
   overlaysDiv.style.gridTemplateRows = '1fr';
-  overlaysDiv.style.width = '50vw';
+  overlaysDiv.style.width = '40vw';
 
 
     overlaysDiv.style.height = paragraphHeight + "px";
@@ -57,17 +57,13 @@ function overlays() {
       overlaysDiv.appendChild(colDiv);
     }
 
-}
 
 
 //console.log(p1)
-
-function alternating() {
   element = p1;
   wordSplit = element.innerText.split(/\s/);
   chunks = chunk(wordSplit,3);
   var newP = document.createElement('p');
-  //newP.style.backgroundColor = "#ff00ff";
   chunks.forEach((chunk, index) => {
     var color = 'black';
     if(index%2 === 0) {
@@ -81,7 +77,6 @@ function alternating() {
     newSpan = document.createElement("span")
     newSpan.innerText = pSection
     newSpan.style.color = color;
-    newSpan.style.fontSize = '1em';
     newP.appendChild(newSpan);
     //console.log(newSpan);
   });
@@ -89,7 +84,7 @@ function alternating() {
   element.parentNode.insertBefore(newP, element);
   element.parentNode.removeChild(element);
 
-}
+
 
 
 
@@ -107,50 +102,95 @@ function chunk (arr, len) {
   return chunks;
 }
 
-overlays();
-alternating();
 
 
 // listening for events to change preview colors
-document.getElementById('leftBtn').addEventListener('click', function(event) {
-  var cv1 = document.getElementById('color_left').value;
-  var p = document.getElementById("output_left");
-  color1_ = cv1;
-  chrome.storage.sync.set({color1: color1_}, function() {
-          console.log('color is ' + item);
+document.getElementById('over-leftBtn').addEventListener('click', function(event) {
+  var cv1 = document.getElementById('over-color-left').value;
+  var p = document.getElementById("over-output-left");
+  over_color1_ = cv1;
+  chrome.storage.sync.set({over_color1: over_color1_}, function() {
+          //console.log('color is ' + item);
         });
   p.textContent = cv1;
   for (var index = 0; index < overlaysDiv.children.length; index++) {
     var color = 'translucent';
     if(index%2 === 0) {
       if(index%4 === 0) {
-        color = color2_
+        color = over_color1_ 
       } else {
-        color = color1_
+        color = color2_
       }
     }
     overlaysDiv.children[index].style.backgroundColor = color
   }
 })
 
-document.getElementById('rightBtn').addEventListener('click', function(event) {
-  var cv1 = document.getElementById('color_right').value;
-  var p = document.getElementById("output_right");
-  color2_ = cv1;
-  chrome.storage.sync.set({color2: color2_}, function() {
-          console.log('color is ' + item);
+document.getElementById('over-rightBtn').addEventListener('click', function(event) {
+  var cv1 = document.getElementById('over-color-right').value;
+  var p = document.getElementById("over-output-right");
+  over_color2_ = cv1;
+  chrome.storage.sync.set({over_color2: over_color2_}, function() {
+          //console.log('color is ' + item);
         });
-  p.textContent = cv1;onClick="processRightColor('color_right')"
   for (var index = 0; index < overlaysDiv.children.length; index++) {
     var color = 'translucent';
     if(index%2 === 0) {
       if(index%4 === 0) {
-        color = color2_
-      } else {
         color = color1_
+      } else {
+        color = over_color2_ 
       }
     }
     overlaysDiv.children[index].style.backgroundColor = color
   }
+
+})
+
+document.getElementById('alt-leftBtn').addEventListener('click', function(event) {
+  var cv1 = document.getElementById('alt-color-left').value;
+  var p = document.getElementById("alt-output-left");
+
+  alt_color1_ = cv1;
+  chrome.storage.sync.set({alt_color1: alt_color1_}, function() {
+          //console.log('color is ' + item);
+        });
+  color2_ = alt_color1_
+  for( var i = 0; i < newP.children.length; i++) {
+    color = 'black'
+    if(i%2 === 0) {
+      if(i%4 === 0) {
+        color = alt_color1_
+      } else {
+        color = newP.children[i].style.color;
+      }
+    }
+    newP.children[i].style.color = color;
+  }
+    
+
+  
+  
+});
+
+
+document.getElementById('alt-rightBtn').addEventListener('click', function(event) {
+  var cv1 = document.getElementById('alt-color-right').value;
+  alt_color2_ = cv1;
+  chrome.storage.sync.set({alt_color2: alt_color2_}, function() {
+          //console.log('color is ' + item);
+        });
+  for( var i = 0; i < newP.children.length; i++) {
+    color = 'black'
+    if(i%2 === 0) {
+      if(i%4 === 0) {
+        color = newP.children[i].style.color;
+      } else {
+        color = alt_color2_
+      }
+    }
+    newP.children[i].style.color = color;
+  }
+    
 
 })
