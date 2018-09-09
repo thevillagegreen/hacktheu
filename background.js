@@ -1,8 +1,14 @@
 chrome.runtime.onInstalled.addListener(function() {
-  chrome.storage.sync.set({color1: '#007800'}, function() {
+  chrome.storage.sync.set({over_color1: '#007800'}, function() {
     console.log("The color is green.");
   });
-  chrome.storage.sync.set({color2: '#FF0000'}, function() {
+  chrome.storage.sync.set({over_color2: '#FF0000'}, function() {
+    console.log("The color is green.");
+  });
+  chrome.storage.sync.set({alt_color1: '#007800'}, function() {
+    console.log("The color is green.");
+  });
+  chrome.storage.sync.set({alt_color2: '#FF0000'}, function() {
     console.log("The color is green.");
   });
   chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {

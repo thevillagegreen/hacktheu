@@ -7,23 +7,56 @@
 .form {
   grid-area: 'form';
   display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: 'over' + 
+                        'alt';
+  margin-right: 20px;
+}
+
+#overlay-colors {
+  grid-area: 'over';
+  display: grid;
+  grid-gap: 10px;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: 'left right'
+  grid-template-areas: 'over-left over-right';
+
+}
+
+#alternating-colors {
+  grid-area: 'alt';
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 'alt-left alt-right';
+
+}
+
+
+#over-left-eye-select {
+  grid-area: 'over-left'
+}
+
+#over-right-eye-select {
+  grid-area: 'over-right'
+}
+
+#alt-left-eye-select {
+  grid-area: 'alt-left'
+}
+
+#alt-right-eye-select {
+  grid-area: 'alt-right'
+}
+
+p{
+  font-size: 8px important!;
 }
 
 .preview {
   grid-area: 'preview'
 }
 
-#left-view {
-  grid-area: 'left';
-	width: 50vw;
-	height: 50vh;
-	background: #1E2D2F;
-	display: none;
-	justify-content: center;
-	align-items: center;
-}
+
 
 /* #right-view {
   grid-area: 'right';
