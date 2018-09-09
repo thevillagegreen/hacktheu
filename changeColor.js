@@ -1,20 +1,18 @@
-
 function generatePartitions(parentDiv, length) {
-   Divs = [];
-    currentDiv = [];
-    Divs.push(currentDiv);
-    for( var i = 0; i < length; i++) {
-      if(parentDiv[i].nodeName === "P") {
-        currentDiv.push(parentDiv[i]);
-      }
-      else {
-        if(currentDiv.length > 0 ){
-          currentDiv = [];
-          Divs.push(currentDiv);
-        }
+  Divs = [];
+  currentDiv = [];
+  Divs.push(currentDiv);
+  for (var i = 0; i < length; i++) {
+    if (parentDiv[i].nodeName === "P") {
+      currentDiv.push(parentDiv[i]);
+    } else {
+      if (currentDiv.length > 0) {
+        currentDiv = [];
+        Divs.push(currentDiv);
       }
     }
-    return Divs;
+  }
+  return Divs;
 }
 //parent = document.getElementById("mw-content-text").firstChild;
 divs = generatePartitions(document.getElementById("mw-content-text").firstChild.childNodes, document.getElementById("mw-content-text").firstChild.childNodes.length);
@@ -31,20 +29,40 @@ divs.forEach(function(element) {
 });
 console.log(total);*/
 
-for(var i = 0; i < divs.length-1; i ++) {
-  console.log(i);
-  var inserted = divs[i][0].insertBefore(document.createElement("div"), null);
-  for(var j =0; j < divs[i].length; j++) {
-    inserted.appendChild(divs[i][j]);
-  }
+nodes = [];
+for (var i = 0; i < divs.length; i++) {
+  if (divs[i].length !== 0) {
+    var node = divs[i][0].parentNode.insertBefore(document.createElement('div'), divs[i][0]);
+
+    var overlayDiv = document.createElement('div');
+    overlayDiv.classList.add('overlay');
+    node.prepend(overlayDiv);
+
+    divs[i].forEach(function(element) {
+      var e = element.parentNode.removeChild(element);
+      node.appendChild(e);
+    });
+    nodes.push(node);
+  };
 };
 
-divs.forEach(function(element){
-  console.log("test");
-  element.forEach(function(element){
-    element.style.color="#ff00000";
-  });
+nodes.forEach(function(element){
+  element.style.color = "#ff00ff";
 });
+// for(var i = 0; i < divs.length-1; i ++) {
+//   console.log(i);
+//   var inserted = divs[i][0].insertBefore(document.createElement("div"), null);
+//   for(var j =0; j < divs[i].length; j++) {
+//     inserted.appendChild(divs[i][j]);
+//   }
+// };
+//
+// divs.forEach(function(element){
+//   console.log("test");
+//   element.forEach(function(element){
+//     element.style.color="#ff00000";
+//   });
+// });
 /*for (var i = 0; i< divs[3].length; i++) {
 
   if( i == 0) {
