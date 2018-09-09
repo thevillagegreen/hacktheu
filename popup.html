@@ -16,8 +16,37 @@
     </h1>
   </div>
   <div class="modal-content">
-    <p> sample text </p>
+    <p> enable eye therapy settings </p>
     <button id = "changeColor">I do things!</button>
   </div>
+
+  <!-- settings menu -->
+  <div class="dropdown">
+  <button class="dropbtn">SETTINGS</button>
+  <form class="dropdown-content">
+    <div id="left">
+      <p>Number of columns</p>
+      <input type="number" value="columns" id="nio"></input>
+       <input type="submit" name="submit"></input>
+    </div>
+    <div id="right">
+      <div id="rr">
+        <input type="text" name="col-one"></input>
+        <input type="submit" name="col-one-sub"></input>
+        <p class="text"> column one (hex value):</p>
+      </div>
+
+      <div id="rl">
+        <input type="text" name="col-two"> </input>
+        <input type="submit" name="col-two-sub"> </input>
+        <p class="text"> column two (hex value):</p>
+      </div>
+    </div>
+
+    </div>
+  </form>
+  </div>
+
   <script src="popup.js"></script>
 </body>
+</html>
